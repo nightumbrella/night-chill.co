@@ -1,6 +1,7 @@
 import React from "react";
 
 const Background = ({ children }: { children: React.ReactNode }) => {
+  
   return (
     <div className="h-screen w-screen relative overflow-hidden">
       {/* video background */}
