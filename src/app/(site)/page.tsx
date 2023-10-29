@@ -1,8 +1,9 @@
-
-const Home = ({ children }: { children: React.ReactNode }) => {
+const Home = () => {
   return (
     <div>
       Home page
+      <div>
+      </div>
     </div>
   );
 };
