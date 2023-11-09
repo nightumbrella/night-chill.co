@@ -13,8 +13,8 @@ interface positionType {
 }
 
 const Settings = () => {
-  const lx = window.localStorage.getItem("positionX");
-  const ly = window.localStorage.getItem("positionY");
+  const lx = localStorage.getItem("positionX");
+  const ly = localStorage.getItem("positionY");
   const [position, setPosition] = useState<positionType>({ x: lx, y: ly });
   const divRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -22,8 +22,8 @@ const Settings = () => {
 
   // Load the position from local storage when the component mounts
   useEffect(() => {
-    const savedX = window.localStorage.getItem("positionX");
-    const savedY = window.localStorage.getItem("positionY");
+    const savedX = localStorage.getItem("positionX");
+    const savedY = localStorage.getItem("positionY");
 
     if (savedX && savedY) {
       setPosition({ x: parseInt(savedX), y: parseFloat(savedY) });
@@ -38,8 +38,8 @@ const Settings = () => {
         setPosition({ x, y });
 
         // Save the position to local storage
-        window.localStorage.setItem("positionX", x.toString());
-        window.localStorage.setItem("positionY", y.toString());
+        localStorage.setItem("positionX", x.toString());
+        localStorage.setItem("positionY", y.toString());
       }
     };
 
