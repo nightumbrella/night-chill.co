@@ -20,7 +20,6 @@ interface positionType {
 const Settings = () => {
   const lx = localStorage.getItem("positionX");
   const ly = localStorage.getItem("positionY");
-  console.log(lx, typeof ly);
   const [position, setPosition] = useState<positionType>({ x: lx, y: ly });
   const divRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -78,32 +77,35 @@ const Settings = () => {
   return (
     <div
       ref={divRef}
-      className="movable-div select-none cursor-move"
+      className="movable-div select-none backdrop-blur-[10px] overflow-hidden rounded-[12px]"
       style={{ left: position.x, top: position.y }}
-      onMouseDown={handleMouseDown}
     >
-      <Card className="w-[500px]">
-        <CardHeader>
-          <div>
-            <CardTitle>General Settings</CardTitle>
-            <Button variant={"ghost"}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </Button>
-          </div>
-        </CardHeader>
+      <div
+        className="h-[30px] cursor-move absolute top-0 left-0  z-50 w-full "
+        onMouseDown={handleMouseDown}
+      ></div>
+      <Card className="w-[350px] h-[500px] bg-[#121212] text-white opacity-75">
+          <CardHeader>
+            <div className="flex justify-between items-center">
+              <CardTitle>General Settings</CardTitle>
+              <button>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+          </CardHeader>
       </Card>
     </div>
   );
