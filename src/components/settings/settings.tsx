@@ -18,8 +18,8 @@ interface positionType {
 }
 
 const Settings = () => {
-  const lx = localStorage.getItem("positionX");
-  const ly = localStorage.getItem("positionY");
+  const lx = window.localStorage.getItem("positionX");
+  const ly = window.localStorage.getItem("positionY");
   const [position, setPosition] = useState<positionType>({ x: lx, y: ly });
   const divRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
