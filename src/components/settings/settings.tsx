@@ -12,20 +12,40 @@ import {
 import { Button } from "../ui/button";
 import useDraggable from "@/hooks/use-draggable.hook";
 
+interface positionType {
+  x: any;
+  y: any;
+}
+
 const Settings = () => {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const lx = localStorage.getItem("positionX");
+  const ly = localStorage.getItem("positionY");
+  console.log(lx, typeof ly);
+  const [position, setPosition] = useState<positionType>({ x: lx, y: ly });
   const divRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
   const offset = useRef({ x: 0, y: 0 });
 
+  // Load the position from local storage when the component mounts
   useEffect(() => {
-    
+    const savedX = localStorage.getItem("positionX");
+    const savedY = localStorage.getItem("positionY");
+
+    if (savedX && savedY) {
+      setPosition({ x: parseInt(savedX), y: parseFloat(savedY) });
+    }
+  }, []);
+
+  useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       if (isDragging && divRef.current) {
-        setPosition({
-          x: e.clientX - offset.current.x,
-          y: e.clientY - offset.current.y,
-        });
+        const x = e.clientX - offset.current.x;
+        const y = e.clientY - offset.current.y;
+        setPosition({ x, y });
+
+        // Save the position to local storage
+        localStorage.setItem("positionX", x.toString());
+        localStorage.setItem("positionY", y.toString());
       }
     };
 
@@ -58,7 +78,7 @@ const Settings = () => {
   return (
     <div
       ref={divRef}
-      className="movable-div"
+      className="movable-div select-none cursor-move"
       style={{ left: position.x, top: position.y }}
       onMouseDown={handleMouseDown}
     >

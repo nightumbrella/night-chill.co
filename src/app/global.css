@@ -5,7 +5,6 @@
 /* src/MovableDiv.css */
 .movable-div {
   position: absolute;
-  cursor: pointer;
 }
 
 /* src/Workspace.css */
