@@ -27,8 +27,8 @@ const Settings = () => {
 
   // Load the position from local storage when the component mounts
   useEffect(() => {
-    const savedX = localStorage.getItem("positionX");
-    const savedY = localStorage.getItem("positionY");
+    const savedX = window.localStorage.getItem("positionX");
+    const savedY = window.localStorage.getItem("positionY");
 
     if (savedX && savedY) {
       setPosition({ x: parseInt(savedX), y: parseFloat(savedY) });
@@ -43,8 +43,8 @@ const Settings = () => {
         setPosition({ x, y });
 
         // Save the position to local storage
-        localStorage.setItem("positionX", x.toString());
-        localStorage.setItem("positionY", y.toString());
+        window.localStorage.setItem("positionX", x.toString());
+        window.localStorage.setItem("positionY", y.toString());
       }
     };
 
