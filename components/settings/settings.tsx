@@ -13,9 +13,8 @@ interface positionType {
 }
 
 const Settings = () => {
-  const lx = localStorage.getItem("positionX");
-  const ly = localStorage.getItem("positionY");
-  const [position, setPosition] = useState<positionType>({ x: lx, y: ly });
+  const coord:any = []
+  const [position, setPosition] = useState<positionType>({ x: coord[0], y: coord[1] });
   const divRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
   const offset = useRef({ x: 0, y: 0 });
@@ -27,6 +26,7 @@ const Settings = () => {
 
     if (savedX && savedY) {
       setPosition({ x: parseInt(savedX), y: parseFloat(savedY) });
+      coord.push(savedX,savedY)
     }
   }, []);
 

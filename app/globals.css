@@ -1,6 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.movable-div {
+  position: absolute;
+}
  
 @layer base {
   :root {
