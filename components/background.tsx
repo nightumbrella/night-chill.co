@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import ReactPlayer from "react-player/lazy";
+import YouTubePlayer from "react-player/youtube";
 
 const Background = ({ children }: { children: React.ReactNode }) => {
   const [videoUrl, setVideoUrl] = useState<string>("/wal1.mp4");
@@ -47,8 +48,6 @@ const Background = ({ children }: { children: React.ReactNode }) => {
     setIsValidUrl(validateYouTubeUrl(videoId));
   };
 
- 
-
   return (
     <div className="h-screen w-screen relative overflow-hidden">
       {/* modal button */}
@@ -73,37 +72,23 @@ const Background = ({ children }: { children: React.ReactNode }) => {
       {/* video background */}
       <div className="absolute top-0 left-0 -z-50">
         {/* <video src={videoUrl} autoPlay loop muted></video> */}
-
-        {/* <ReactPlayer playing={true} loop controls={false} muted url='https://www.youtube.com/watch?v=LXb3EKWsInQ' /> */}
-        {/* <video controls>
-          <source
-            src="https://www.youtube.com/watch?v=L93hyPiltLA&t=126s"
-            type="video/mp4"
-          />
-        </video> */}
-      
       </div>
       <div>
-          {/* <iframe
-          width="1903"
-          height="776"
-          onClick={console}
-          className="relative z-50"
-          src="https://www.youtube.com/embed/L93hyPiltLA?&autoplay=1"
-          title="How to upload youtube videos in your React App without the Iframe tag or embed URL | React Player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        ></iframe> */}
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <ReactPlayer 
-       url='https://www.youtube.com/watch?v=_ITiwPMUzho'
-       controls={false} />
-    </main>
+          <ReactPlayer
+            url="https://www.youtube.com/watch?v=_ITiwPMUzho"
+            controls={false}
+            playing
+            muted
+            loop
+            key={'youtube'}
+          />
+        </main>
       </div>
       {/* video background */}
       {children}
     </div>
   );
 };
-
 
 export default Background;
