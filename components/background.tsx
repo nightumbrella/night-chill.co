@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import ReactPlayer from "react-player/lazy";
 import YouTubePlayer from "react-player/youtube";
+import YouTube from 'react-youtube';
 
 const Background = ({ children }: { children: React.ReactNode }) => {
   const [videoUrl, setVideoUrl] = useState<string>("/wal1.mp4");
