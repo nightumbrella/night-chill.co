@@ -52,7 +52,7 @@ const Background = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="h-screen w-screen relative overflow-hidden">
       {/* modal button */}
-      <div className="relative z-50">
+      {/* <div className="relative z-50">
         {isModal ? (
           <form onSubmit={handleSubmit}>
             <input
@@ -67,14 +67,13 @@ const Background = ({ children }: { children: React.ReactNode }) => {
             Open modal
           </h1>
         )}
-      </div>
-
+      </div> */}
       {/* modal button */}
       {/* video background */}
       <div className="absolute top-0 left-0 -z-50">
-        {/* <video src={videoUrl} autoPlay loop muted></video> */}
+        <video src={videoUrl} autoPlay loop muted></video>
       </div>
-      <div>
+      {/* <div>
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
           <ReactPlayer
             url="https://www.youtube.com/watch?v=_ITiwPMUzho"
@@ -85,7 +84,7 @@ const Background = ({ children }: { children: React.ReactNode }) => {
             key={'youtube'}
           />
         </main>
-      </div>
+      </div> */}
       {/* video background */}
       {children}
     </div>
@@ -93,3 +92,4 @@ const Background = ({ children }: { children: React.ReactNode }) => {
 };
 
 export default Background;
+

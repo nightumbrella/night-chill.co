@@ -19,6 +19,7 @@ const Settings = () => {
   const [isDragging, setIsDragging] = useState(false);
   const offset = useRef({ x: 0, y: 0 });
 
+
   // Load the position from local storage when the component mounts
   useEffect(() => {
     const savedX = localStorage.getItem("positionX");
@@ -29,7 +30,7 @@ const Settings = () => {
       coord.push(savedX,savedY)
     }
   }, []);
-
+  
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       if (isDragging && divRef.current) {
