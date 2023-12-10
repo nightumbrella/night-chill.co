@@ -18,8 +18,6 @@ const Settings = () => {
   const divRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
   const offset = useRef({ x: 0, y: 0 });
-
-
   // Load the position from local storage when the component mounts
   useEffect(() => {
     const savedX = localStorage.getItem("positionX");
