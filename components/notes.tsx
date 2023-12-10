@@ -3,7 +3,7 @@ import { Card, CardHeader, CardTitle } from "./ui/card";
 
 const Notes = () => {
   return (
-    <div className="movable-div select-none backdrop-blur-[10px] overflow-hidden rounded-[12px]">
+    <div className="movable-div relative select-none backdrop-blur-[10px] overflow-hidden rounded-[12px]">
       <div className="h-[30px] cursor-move absolute top-0 left-0  z-50 w-full "></div>
       <Card className="w-[350px] h-[500px] bg-[#121212] text-white opacity-75">
         <CardHeader>
