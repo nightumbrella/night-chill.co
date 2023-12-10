@@ -52,7 +52,10 @@
     "tailwind-merge": "^2.0.0",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^3.22.4",
-    "zustand": "^4.4.7"
+    "zustand": "^4.4.7",
+    "@clerk/nextjs": "^4.27.5",
+    "@prisma/client": "^5.7.0",
+    "lucide-react": "^0.294.0"
   },
   "devDependencies": {
     "@types/node": "^20",
