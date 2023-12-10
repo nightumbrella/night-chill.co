@@ -1,46 +1,49 @@
 "use client";
 import useModalStore from "@/zustand-store/modal.store";
 import { useWindowModal } from "@/zustand-store/window-modal";
-import React from "react";
+import React, { useState } from "react";
 import { motion as m, AnimatePresence } from "framer-motion";
-
-
+import ModalItem from "./moda-item";
 
 const allRoutes = [
-    {
-        label:"Account Settings",
-        icon:'UserCog' ,
-    },
-    {
-        label:"Integrations",
-        icon:'Usb' ,
-    },
-    {
-        label:"Settings",
-        icon:'settings' ,
-    },
-    {
-        label:"Help",
-        icon:'badge-help' ,
-    },
-    {
-        label:"Activity",
-        icon:'activity' ,
-    },
-    {
-        label:"Notes",
-        icon:'file' ,
-    },
-    {
-        label:"Calendar",
-        icon:'calendar-check' ,
-    },
-]
-
+  {
+    label: "Account Settings",
+    icon: "UserCog",
+  },
+  {
+    label: "Integrations",
+    icon: "Usb",
+  },
+  {
+    label: "Settings",
+    icon: "settings",
+  },
+  {
+    label: "Help",
+    icon: "badge-help",
+  },
+  {
+    label: "Activity",
+    icon: "activity",
+  },
+  {
+    label: "Notes",
+    icon: "file",
+  },
+  {
+    label: "Calendar",
+    icon: "calendar-check",
+  },
+];
 
 const ModalAll = () => {
   const { isModal, openModal, closeModal } = useWindowModal();
+  const [activeLabelState, setActiveLabelState] = useState("");
+  console.log(activeLabelState)
 
+  const activeLabelModal = (e: string) => {
+    setActiveLabelState(e);
+  };
 
   return (
     <>
@@ -60,6 +63,17 @@ const ModalAll = () => {
               <button className="text-white" onClick={() => closeModal()}>
                 close
               </button>
+            </div>
+
+            <div className="">
+              {allRoutes.map((data) => (
+                <ModalItem
+                  key={data.label}
+                  label={data.label}
+                  onClick={activeLabelModal}
+                  activeLabel={activeLabelState}
+                />
+              ))}
             </div>
           </m.div>
         )}
